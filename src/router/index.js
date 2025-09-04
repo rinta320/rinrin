@@ -1,29 +1,28 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Vue from 'vue';
+import Router from 'vue-router';
 
-Vue.use(VueRouter)
+import HomeView from '../views/HomeView.vue';
+import MovieSelect from '../views/MovieSelect.vue';
+import SeatReservation from '../views/SeatReservation.vue';
+import ReservationConfirm from '../views/ReservationConfirm.vue';
+import AIChat from '../views/AIChat.vue';
+import MyPage from '../views/MyPage.vue'; 
 
-const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: HomeView
-  },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
-]
+Vue.use(Router);
 
-const router = new VueRouter({
+export default new Router({
   mode: 'history',
-  base: process.env.BASE_URL,
-  routes
-})
+  routes: [
+    { path: '/', name: 'HomeView', component: HomeView },
+    { path: '/movies', name: 'MovieSelect', component: MovieSelect },
+    { path: '/seats/:movieId', name: 'SeatReservation', component: SeatReservation, props: true },
+    { path: '/confirm', name: 'ReservationConfirm', component: ReservationConfirm },
+    { path: '/aichat', name: 'AIChat', component: AIChat },
+    { path: '/mypage', name: 'MyPage', component: MyPage } 
+  ]
+});
 
-export default router
+
+
+
+

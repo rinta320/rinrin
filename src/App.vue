@@ -1,32 +1,49 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+  <div id="app" class="app-layout">
+    <header class="header">
+      🎬 映画館アプリ
+      <nav>
+        <router-link to="/">座席予約</router-link> |
+        <router-link to="/chat">AIチャット</router-link>
+      </nav>
+    </header>
+
+    <main class="main">
+      <router-view />
+    </main>
+
+    <footer class="footer">
+      © 2025 映画館アプリ
+    </footer>
   </div>
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.header {
+  background: #4facfe;
+  color: white;
+  padding: 15px;
+}
+.main {
+  flex: 1;
+  padding: 20px;
+  background: #f9f9f9;
+  overflow-y: auto;
+}
+.footer {
+  background: #333;
+  color: white;
   text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+  padding: 10px;
 }
 </style>
+
+
+
+
+
