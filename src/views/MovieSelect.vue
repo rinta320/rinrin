@@ -1,25 +1,37 @@
 <template>
   <div class="movie-select">
-    <h2 class="title">映画選択</h2>
-    <div class="movie-grid">
-      <div v-for="movie in movies" :key="movie.Movieid" class="movie-card">
-        <h3>{{ movie.Movietitle }}</h3>
-        <p>{{ movie.Starttime }}</p>
-        <router-link :to="`/seats/${movie.Movieid}`">
-          <button class="btn">座席予約へ</button>
-        </router-link>
+    <h2 class="title">🎬 上映作品一覧</h2>
+
+    <div
+      v-for="movie in movies"
+      :key="movie.Movieid"
+      class="movie-card"
+    >
+      <div class="movie-info">
+        <p class="movie-title">
+          {{ movie.Movietitle }}
+          <span class="movie-id">ID: {{ movie.Movieid }}</span>
+        </p>
+        <p class="movie-time">🎞 上映開始: {{ movie.Starttime }}</p>
       </div>
+
+      <router-link
+        class="seat-link"
+        :to="'/seats/' + movie.Movieid"
+      >
+        🎟 座席を選択
+      </router-link>
     </div>
   </div>
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "MovieSelect",
   computed: {
-    ...mapState(["movies"])
+    ...mapGetters(["movies"])
   },
   mounted() {
     this.fetchMovies();
@@ -33,33 +45,85 @@ export default {
 <style scoped>
 .movie-select {
   background: #111;
-  color: white;
+  color: #fff;
   min-height: 100vh;
-  padding: 20px;
+  padding: 30px 15px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
 }
+
 .title {
   text-align: center;
-  color: #e60012;
-  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 30px;
 }
-.movie-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
-}
+
 .movie-card {
-  background: #222;
-  padding: 16px;
-  border-radius: 8px;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #444;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 15px auto;
+  background: #1a1a1a;
+  max-width: 650px;
+  transition: background 0.2s;
 }
-.btn {
+
+.movie-card:hover {
+  background: #222;
+}
+
+.movie-info {
+  flex: 1;
+}
+
+.movie-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.movie-id {
+  font-size: 13px;
   background: #e60012;
-  border: none;
-  color: white;
-  padding: 8px 12px;
+  color: #fff;
+  padding: 2px 6px;
   border-radius: 4px;
-  cursor: pointer;
+}
+
+.movie-time {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.seat-link {
+  padding: 10px 16px;
+  background: #e60012;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.seat-link:hover {
+  background: #b0000d;
 }
 </style>
+
+
+
+
+
+
+
+
+
+
 

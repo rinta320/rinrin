@@ -1,20 +1,18 @@
 <template>
   <div id="app" class="app-layout">
     <header class="header">
-      🎬 映画館アプリ
-      <nav>
-        <router-link to="/">座席予約</router-link> |
-        <router-link to="/chat">AIチャット</router-link>
+      <span class="logo">KOBAYASHI CINEMA</span>
+      <nav class="nav">
+        <!-- ホームボタン -->
+        <router-link to="/" class="nav-btn">ホーム</router-link>
+        <!-- 予約履歴ボタン -->
+        <router-link to="/mypage" class="nav-btn">予約履歴</router-link>
       </nav>
     </header>
 
     <main class="main">
       <router-view />
     </main>
-
-    <footer class="footer">
-      © 2025 映画館アプリ
-    </footer>
   </div>
 </template>
 
@@ -24,24 +22,37 @@
   flex-direction: column;
   height: 100vh;
 }
+
 .header {
   background: #4facfe;
   color: white;
   padding: 15px;
+  display: flex;
+  justify-content: space-between; /* 左右にロゴとナビを配置 */
+  align-items: center;
 }
-.main {
-  flex: 1;
-  padding: 20px;
-  background: #f9f9f9;
-  overflow-y: auto;
+
+.logo {
+  font-size: 18px;
+  font-weight: bold;
 }
-.footer {
-  background: #333;
+
+.nav {
+  display: flex;
+  gap: 15px; /* ボタン間に余白 */
+}
+
+.nav-btn {
   color: white;
-  text-align: center;
-  padding: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-btn:hover {
+  text-decoration: underline;
 }
 </style>
+
 
 
 
