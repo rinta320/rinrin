@@ -101,7 +101,7 @@ export default {
 .seating {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 8px; /* ← 間隔は今まで通り */
+  gap: 8px;
   justify-items: center;
   margin-bottom: 25px;
 }

@@ -90,7 +90,7 @@ export default {
 
 <style scoped>
 :global(body) {
-  background: #0d0d0d; /* 映画館風 黒背景 */
+  background: #0d0d0d; 
   margin: 0;
   font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 }
@@ -122,7 +122,7 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  overflow-y: auto; /* スクロールありに変更 */
+  overflow-y: auto; 
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 

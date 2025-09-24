@@ -2,7 +2,6 @@
   <div class="home">
     <div class="overlay">
       <div class="home-container">
-        <!-- タイトル＋ロゴ -->
         <div class="logo-title">
           <span class="logo-mark">🎥</span>
           <h1 class="title">KOBAYASHI CINEMA</h1>
@@ -26,7 +25,8 @@ export default {
 
 <style scoped>
 .home {
-  background: linear-gradient(to bottom, #000 20%, #111 100%);
+  background: url("https://images.unsplash.com/photo-1524985069026-dd778a71c7b4") no-repeat center center;
+  background-size: cover;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -37,7 +37,7 @@ export default {
 }
 
 .overlay {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   width: 100%;
   height: 100%;
   display: flex;
@@ -69,7 +69,7 @@ export default {
 
 .subtitle {
   font-size: 16px;
-  color: #bbb;
+  color: #ddd;
   margin-bottom: 30px;
 }
 
@@ -89,6 +89,8 @@ export default {
   background: #b0000d;
 }
 </style>
+
+
 
 
 

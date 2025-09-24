@@ -52,7 +52,7 @@ export default {
 
 <style scoped>
 .reservation-confirm {
-  background: #0d0d0d; /* 黒背景で映画館風 */
+  background: #0d0d0d; 
   color: white;
   min-height: 100vh;
   padding: 30px 20px;
@@ -68,7 +68,6 @@ export default {
   letter-spacing: 1px;
 }
 
-/* チケット風カード */
 .ticket-card {
   background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
   border: 2px dashed #ff4757;
