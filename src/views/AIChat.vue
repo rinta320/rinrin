@@ -8,7 +8,7 @@
         :key="idx"
         :class="['msg', msg.role]"
       >
-        <p>{{ msg.content }}</p>
+        <pre class="msg-text">{{ msg.content }}</pre>
       </div>
     </div>
 
@@ -53,7 +53,7 @@ export default {
         if (typeof resData === "string") {
           try {
             resData = JSON.parse(resData);
-          } catch (e) {
+          } catch {
             this.messages.push({
               role: "ai",
               content: "返り値を正しく解析できませんでした。",
@@ -90,13 +90,13 @@ export default {
 
 <style scoped>
 :global(body) {
-  background: #0d0d0d; 
+  background: #0d0d0d;
   margin: 0;
   font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 }
 
 .chat-container {
-  max-width: 650px;
+  max-width: 700px;
   margin: 0 auto;
   padding: 20px;
   min-height: 100vh;
@@ -116,36 +116,41 @@ export default {
 .chat-box {
   flex: 1;
   padding: 20px;
-  background: #fff;
+  background: #1a1a1a;
   border-radius: 12px;
   margin-bottom: 15px;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  overflow-y: auto; 
+  overflow-y: auto;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .msg {
   max-width: 75%;
-  padding: 10px 14px;
+  padding: 12px 16px;
   border-radius: 14px;
   font-size: 15px;
-  line-height: 1.4;
+  line-height: 1.6;
   word-break: break-word;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
+.msg-text {
+  margin: 0;
+  white-space: pre-line; 
+}
+
 .msg.user {
   align-self: flex-end;
-  background: linear-gradient(to right, #007bff, #0056b3);
+  background: linear-gradient(to right, #ff4757, #e60012);
   color: #fff;
   border-bottom-right-radius: 2px;
 }
 
 .msg.ai {
   align-self: flex-start;
-  background: linear-gradient(to right, #f1f1f1, #e4e4e4);
+  background: #f1f1f1;
   color: #000;
   border-bottom-left-radius: 2px;
 }
@@ -184,6 +189,7 @@ button:hover {
   transform: translateY(-2px);
 }
 </style>
+
 
 
 

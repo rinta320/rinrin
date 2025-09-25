@@ -44,11 +44,32 @@ export default {
 
 <style scoped>
 .movie-select {
-  background: #111;
-  color: #fff;
   min-height: 100vh;
   padding: 30px 15px;
   font-family: "Helvetica Neue", Arial, sans-serif;
+
+  background: url("https://images.unsplash.com/photo-1524985069026-dd778a71c7b4")
+    no-repeat center center / cover;
+
+  position: relative;
+  color: #fff;
+}
+
+.movie-select::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); 
+  z-index: 0;
+}
+
+.title,
+.movie-card {
+  position: relative;
+  z-index: 1; 
 }
 
 .title {
@@ -66,13 +87,13 @@ export default {
   border-radius: 10px;
   padding: 20px;
   margin: 15px auto;
-  background: #1a1a1a;
+  background: rgba(26, 26, 26, 0.85); 
   max-width: 650px;
   transition: background 0.2s;
 }
 
 .movie-card:hover {
-  background: #222;
+  background: rgba(34, 34, 34, 0.9);
 }
 
 .movie-info {
@@ -98,7 +119,7 @@ export default {
 
 .movie-time {
   font-size: 14px;
-  color: #aaa;
+  color: #ddd;
 }
 
 .seat-link {
@@ -116,6 +137,7 @@ export default {
   background: #b0000d;
 }
 </style>
+
 
 
 
